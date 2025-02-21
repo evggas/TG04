@@ -4,13 +4,11 @@ from aiogram.utils.keyboard import InlineKeyboardBuilder
 from aiogram.filters import Command
 import asyncio
 
-from config import TOKEN  # Подключаем токен бота
+from config import TOKEN
 
 bot = Bot(token=TOKEN)
 dp = Dispatcher()
 
-
-# Задание 1: Простое меню с кнопками
 @dp.message(Command("start"))
 async def start_command(message: types.Message):
     keyboard = ReplyKeyboardMarkup(
@@ -41,7 +39,6 @@ async def button_response(message: types.Message):
         await message.answer(f"До свидания, {message.from_user.first_name}!")
 
 
-# Задание 3: Динамическое изменение клавиатуры
 @dp.callback_query(lambda c: c.data == "show_more")
 async def show_more_buttons(callback: types.CallbackQuery):
     keyboard = InlineKeyboardMarkup(
