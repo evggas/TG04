@@ -16,7 +16,7 @@ router = Router()
 
 @router.message(Command("start"))
 async def send_welcome(message: Message):
-    await message.reply("Привет, Женечка! Я твой бот для поиска фильмов. Вот что я умею:\n"
+    await message.reply("Привет! Я твой бот для поиска фильмов. Вот что я умею:\n"
                        "/find <название> - найти фильм\n"
                        "/popular - популярные фильмы")
 
